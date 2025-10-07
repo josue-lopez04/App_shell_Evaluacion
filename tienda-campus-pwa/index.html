@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Tienda Campus</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="img/icon-192.png" />
+  <link rel="apple-touch-icon" href="img/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    BENEFICIO DEL APP SHELL (explicación pedida):
+    Cacheamos el "cascarón" (encabezado, menú, pie, CSS y JS). Así,
+    aunque no haya conexión, la app abre rápido y la interfaz carga al instante.
+    Luego los datos (productos) se cargan aparte cuando haya red.
+
+    DIFERENCIA SHELL vs DINÁMICO:
+    - Shell: estructura fija de la UI (header, menú, footer, estilos, scripts).
+    - Contenido dinámico: datos que cambian (lista de productos desde JSON o API).
+  -->
+
+  <header class="app-header">
+    <h1>Tienda Campus Josue lopez hernandez 2022371020</h1>
+  </header>
+
+  <nav class="top-nav">
+    <button class="nav-btn" data-category="papeleria">Papelería</button>
+    <button class="nav-btn" data-category="electronica">Electrónica</button>
+    <button class="nav-btn" data-category="snacks">Snacks</button>
+  </nav>
+
+  <main id="content" class="content">
+
+    <section id="products" class="products"></section>
+  </main>
+
+  <footer class="app-footer">
+    Universidad Tecnológica de Queretaro – Tienda Campus 2025
+  </footer>
+
+  <script src="app.js" defer></script>
+  <script>
+    // Registro del Service Worker (cachea el App Shell)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>

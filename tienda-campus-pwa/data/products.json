@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Cuaderno Profesional", "price": 45, "category": "papeleria" },
+  { "id": 2, "name": "Memoria USB 2T", "price": 129, "category": "electronica" },
+  { "id": 3, "name": "Barra de Granola", "price": 18, "category": "snacks" }
+]
